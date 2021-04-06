@@ -1,0 +1,890 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database>
+    <name>zaliczenie</name>
+    <table>
+        <database></database>
+        <name>Garaze</name>
+        <ddl>CREATE TABLE Garaze (Nr_garazu NUMERIC (3) PRIMARY KEY NOT NULL, Liczba_miejsc NUMERIC (3) NOT NULL, Oddzial REFERENCES Oddzialy (Nr_oddizalu) NOT NULL)</ddl>
+        <columns>
+            <column>
+                <name>Nr_garazu</name>
+                <type>NUMERIC</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Liczba_miejsc</name>
+                <type>NUMERIC</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Oddzial</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES Oddzialy (Nr_oddizalu) </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">2</value>
+                <value column="1">36</value>
+                <value column="2">POZ0001</value>
+            </row>
+            <row>
+                <value column="0">1</value>
+                <value column="1">20</value>
+                <value column="2">POZ0001</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Kierowcy</name>
+        <ddl>CREATE TABLE Kierowcy (Pesel VARCHAR (11) NOT NULL PRIMARY KEY, Nr_prawa_jazdy NUMERIC (13) NOT NULL, Nr_zlecenia REFERENCES Zlecenia (Nr_zlecenia))</ddl>
+        <columns>
+            <column>
+                <name>Pesel</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Nr_prawa_jazdy</name>
+                <type>NUMERIC</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Nr_zlecenia</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES Zlecenia (Nr_zlecenia)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">00212228652</value>
+                <value column="1">71100428449</value>
+                <value column="2">3</value>
+            </row>
+            <row>
+                <value column="0">90010963457</value>
+                <value column="1">2260972644</value>
+                <value column="2">3</value>
+            </row>
+            <row>
+                <value column="0">54042782314</value>
+                <value column="1">68091191348</value>
+                <value column="2">1</value>
+            </row>
+            <row>
+                <value column="0">81080589296</value>
+                <value column="1">56061133247</value>
+                <value column="2">4</value>
+            </row>
+            <row>
+                <value column="0">62090539314</value>
+                <value column="1">64040664185</value>
+                <value column="2">5</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Klienci</name>
+        <ddl>CREATE TABLE Klienci (Nr_klienta INTEGER PRIMARY KEY UNIQUE NOT NULL, Imie VARCHAR (50) NOT NULL, Nazwisko VARCHAR (100) NOT NULL, NIP VARCHAR (10))</ddl>
+        <columns>
+            <column>
+                <name>Nr_klienta</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY </definition>
+                    </constraint>
+                    <constraint>
+                        <type>UNIQUE</type>
+                        <definition>UNIQUE </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Imie</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Nazwisko</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>NIP</name>
+                <type>VARCHAR</type>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">Wiktoria</value>
+                <value column="2">Kalinowska</value>
+                <value column="3">9385244478</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">Jakub</value>
+                <value column="2">Urbański</value>
+                <value column="3">5644244271</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">Alicja</value>
+                <value column="2">Urbańska</value>
+                <value column="3">2411332727</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">Oskar</value>
+                <value column="2">Czarnecki</value>
+                <value column="3">5033698020</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">Maja</value>
+                <value column="2">Owczarek</value>
+                <value column="3" null="true"/>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Naczepy</name>
+        <ddl>CREATE TABLE Naczepy (Nr_rejestracyjny_naczepy VARCHAR (7) NOT NULL PRIMARY KEY, Marka VARCHAR (50) NOT NULL)</ddl>
+        <columns>
+            <column>
+                <name>Nr_rejestracyjny_naczepy</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Marka</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">LPU60HN</value>
+                <value column="1">Langendorf</value>
+            </row>
+            <row>
+                <value column="0">WG63202</value>
+                <value column="1">Krone</value>
+            </row>
+            <row>
+                <value column="0">ML9065</value>
+                <value column="1">Benalu</value>
+            </row>
+            <row>
+                <value column="0">ERA81TL</value>
+                <value column="1">ACTM</value>
+            </row>
+            <row>
+                <value column="0">ERA75TM</value>
+                <value column="1">Krone</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Oddzialy</name>
+        <ddl>CREATE TABLE Oddzialy (Nr_oddizalu NUMERIC (3) PRIMARY KEY NOT NULL, Miejscowosc VARCHAR (100) NOT NULL, Adres VARCHAR (100) NOT NULL, Kod_pocztowy VARCHAR (6) NOT NULL)</ddl>
+        <columns>
+            <column>
+                <name>Nr_oddizalu</name>
+                <type>NUMERIC</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Miejscowosc</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Adres</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Kod_pocztowy</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">POZ0001</value>
+                <value column="1">Poznań</value>
+                <value column="2">Wiosny Ludów 21</value>
+                <value column="3">61-022</value>
+            </row>
+            <row>
+                <value column="0">BER100</value>
+                <value column="1">Berlin</value>
+                <value column="2">Lange Stasse 4B</value>
+                <value column="3">13-409</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Pojazdy</name>
+        <ddl>CREATE TABLE Pojazdy (Nr_rejestracji_pojazdu VARCHAR (7) PRIMARY KEY NOT NULL, Marka VARCHAR (50) NOT NULL, Model VARCHAR (50) NOT NULL, Status CHAR (1) NOT NULL DEFAULT T, Nr_VIN VARCHAR (17) NOT NULL, Rodzaj_pojazdu VARCHAR (50))</ddl>
+        <columns>
+            <column>
+                <name>Nr_rejestracji_pojazdu</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Marka</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Model</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Status</name>
+                <type>CHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>DEFAULT</type>
+                        <definition>DEFAULT T</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Nr_VIN</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Rodzaj_pojazdu</name>
+                <type>VARCHAR</type>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">WSI13058</value>
+                <value column="1">Renaut</value>
+                <value column="2">Magnum</value>
+                <value column="3">W trasie</value>
+                <value column="4">1FM5K8F8XEGC73033</value>
+                <value column="5"></value>
+            </row>
+            <row>
+                <value column="0">WSI10092</value>
+                <value column="1">Mercedes</value>
+                <value column="2">Arocs</value>
+                <value column="3">W garażu</value>
+                <value column="4">1D7HU18Z62J293793</value>
+                <value column="5"></value>
+            </row>
+            <row>
+                <value column="0">GSP85MW</value>
+                <value column="1">Daf</value>
+                <value column="2">XF105</value>
+                <value column="3">W trasie</value>
+                <value column="4">WDDNG71X97A097974</value>
+                <value column="5"></value>
+            </row>
+            <row>
+                <value column="0">DD1354W</value>
+                <value column="1">Volvo</value>
+                <value column="2">FH13</value>
+                <value column="3">Serwis</value>
+                <value column="4">KMHDH4AE4FU255873</value>
+                <value column="5"></value>
+            </row>
+            <row>
+                <value column="0">LO84P95</value>
+                <value column="1">Scania</value>
+                <value column="2">R420</value>
+                <value column="3">W trasie</value>
+                <value column="4">1G2ZH158464174583</value>
+                <value column="5"></value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Pracownicy</name>
+        <ddl>CREATE TABLE Pracownicy (Pesel VARCHAR (11) PRIMARY KEY NOT NULL, Imie VARCHAR (50) NOT NULL, Nazwisko VARCHAR (50) NOT NULL, Stanowisko VARCHAR (50) NOT NULL, Data_urodzenia DATE NOT NULL, Data_zatrudnienia DATE NOT NULL, Mail VARCHAR (50) NOT NULL, Pensja NUMERIC (10, 2) NOT NULL, Oddzial REFERENCES Oddzialy (Nr_oddizalu))</ddl>
+        <columns>
+            <column>
+                <name>Pesel</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Imie</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Nazwisko</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Stanowisko</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Data_urodzenia</name>
+                <type>DATE</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Data_zatrudnienia</name>
+                <type>DATE</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Mail</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Pensja</name>
+                <type>NUMERIC (10, 2)</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Oddzial</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES Oddzialy (Nr_oddizalu)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">90100814663</value>
+                <value column="1">Liliana</value>
+                <value column="2">Michalak</value>
+                <value column="3">Dyrektor</value>
+                <value column="4">1990-10-08</value>
+                <value column="5">2007-09-26</value>
+                <value column="6">Liliana.Michalak@acl.com</value>
+                <value column="7">15000</value>
+                <value column="8">POZ0001</value>
+            </row>
+            <row>
+                <value column="0">52102316697</value>
+                <value column="1">Kamila</value>
+                <value column="2">Lis</value>
+                <value column="3">Księgowa</value>
+                <value column="4">1952-10-23</value>
+                <value column="5">2013-12-09</value>
+                <value column="6">Kamila.Lis@acl.com</value>
+                <value column="7">4000</value>
+                <value column="8">BER100</value>
+            </row>
+            <row>
+                <value column="0">68042721541</value>
+                <value column="1">Stanisław</value>
+                <value column="2">Kozłowski</value>
+                <value column="3">Zastępca dyrektora</value>
+                <value column="4">1968-04-27</value>
+                <value column="5">2014-08-22</value>
+                <value column="6">Stanisław.Kozłowski@acl.com</value>
+                <value column="7">10000</value>
+                <value column="8">BER100</value>
+            </row>
+            <row>
+                <value column="0">66120982949</value>
+                <value column="1">Hanna</value>
+                <value column="2">Kurek</value>
+                <value column="3">Księgowa</value>
+                <value column="4">1966-10-09</value>
+                <value column="5">2018-03-01</value>
+                <value column="6">Hanna.Kurek@acl.com</value>
+                <value column="7">4000</value>
+                <value column="8">POZ0001</value>
+            </row>
+            <row>
+                <value column="0">78050489456</value>
+                <value column="1">Maciej</value>
+                <value column="2">Żukowski</value>
+                <value column="3">Logistyk</value>
+                <value column="4">1978-05-04</value>
+                <value column="5">2017-10-06</value>
+                <value column="6">Maciej.Żukowski@acl.com</value>
+                <value column="7">7000</value>
+                <value column="8">POZ0001</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Stale_kursy</name>
+        <ddl>CREATE TABLE Stale_kursy (Adres_zaladunku VARCHAR (300) NOT NULL, Adres_rozladunku VARCHAR (300) NOT NULL)</ddl>
+        <columns>
+            <column>
+                <name>Adres_zaladunku</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Adres_rozladunku</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">Poznań</value>
+                <value column="1">Berlin</value>
+            </row>
+            <row>
+                <value column="0">Berlin</value>
+                <value column="1">Dortmund</value>
+            </row>
+            <row>
+                <value column="0">Poznań</value>
+                <value column="1">Wrocław</value>
+            </row>
+            <row>
+                <value column="0">Berlin</value>
+                <value column="1">Wrocław</value>
+            </row>
+            <row>
+                <value column="0">Berlin</value>
+                <value column="1">Warszawa</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Uprawnienia/Licencje</name>
+        <ddl>CREATE TABLE &quot;Uprawnienia/Licencje&quot; (Nazwa VARCHAR (200) NOT NULL, Opis VARCHAR (200) NOT NULL)</ddl>
+        <columns>
+            <column>
+                <name>Nazwa</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Opis</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">Materiały wybuchowe</value>
+                <value column="1">Materiały i przedmioty, które zagrażają wybucem masowym</value>
+            </row>
+            <row>
+                <value column="0">Gazy</value>
+                <value column="1">Gazy palne, niepalne, trujące i nietrujące</value>
+            </row>
+            <row>
+                <value column="0">Ciecze zapalne</value>
+                <value column="1">Materiały ciekłe łatwopalne</value>
+            </row>
+            <row>
+                <value column="0">Materiały samozapalne</value>
+                <value column="1">Materiały, które mogą ulec samozapłonowi</value>
+            </row>
+            <row>
+                <value column="0">Radioaktywne</value>
+                <value column="1">Stanowią zagrozenie promieniotwórcze</value>
+            </row>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Uprawnienia/Licencje_Kierowcy</name>
+        <ddl><![CDATA[CREATE TABLE "Uprawnienia/Licencje_Kierowcy" ("Nazwa_uprawnienia/licencji" REFERENCES "Uprawnienia/Licencje" (Nazwa), Kierowca REFERENCES Kierowcy (Pesel))]]></ddl>
+        <columns>
+            <column>
+                <name>Nazwa_uprawnienia/licencji</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES "Uprawnienia/Licencje" (Nazwa)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Kierowca</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES Kierowcy (Pesel)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+        </rows>
+    </table>
+    <table>
+        <database></database>
+        <name>Zlecenia</name>
+        <ddl>CREATE TABLE Zlecenia (Nr_zlecenia INTEGER PRIMARY KEY NOT NULL, Data_zaladunku DATE NOT NULL, Data_rozladunku DATE NOT NULL, Kosz_zlecenia NUMERIC (10, 2) NOT NULL, Rodzaj_ladunku VARCHAR (10) NOT NULL, Oddzial REFERENCES Oddzialy (Nr_oddizalu) NOT NULL, Klient NOT NULL REFERENCES Klienci (Nr_klienta), Zaladunek VARCHAR (200) NOT NULL, Rozładunkek VARCHAR (200) NOT NULL)</ddl>
+        <columns>
+            <column>
+                <name>Nr_zlecenia</name>
+                <type>INTEGER</type>
+                <constraints>
+                    <constraint>
+                        <type>PRIMARY KEY</type>
+                        <definition>PRIMARY KEY </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Data_zaladunku</name>
+                <type>DATE</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Data_rozladunku</name>
+                <type>DATE</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Kosz_zlecenia</name>
+                <type>NUMERIC (10, 2)</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Rodzaj_ladunku</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Oddzial</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES Oddzialy (Nr_oddizalu) </definition>
+                    </constraint>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Klient</name>
+                <type></type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL </definition>
+                    </constraint>
+                    <constraint>
+                        <type>FOREIGN KEY</type>
+                        <definition>REFERENCES Klienci (Nr_klienta)</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Zaladunek</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+            <column>
+                <name>Rozładunkek</name>
+                <type>VARCHAR</type>
+                <constraints>
+                    <constraint>
+                        <type>NOT NULL</type>
+                        <definition>NOT NULL</definition>
+                    </constraint>
+                </constraints>
+            </column>
+        </columns>
+        <rows>
+            <row>
+                <value column="0">1</value>
+                <value column="1">16.10.2012</value>
+                <value column="2">30.10.2012</value>
+                <value column="3">5500</value>
+                <value column="4">Palety</value>
+                <value column="5">POZ0001</value>
+                <value column="6">1</value>
+                <value column="7">Poznań</value>
+                <value column="8">Wrocław</value>
+            </row>
+            <row>
+                <value column="0">2</value>
+                <value column="1">20.03.2013</value>
+                <value column="2">07.04.2013</value>
+                <value column="3">7000</value>
+                <value column="4">Koce</value>
+                <value column="5">POZ0001</value>
+                <value column="6">4</value>
+                <value column="7">Berlin</value>
+                <value column="8">Dortmund</value>
+            </row>
+            <row>
+                <value column="0">3</value>
+                <value column="1">07.07.2014</value>
+                <value column="2">10.07.2014</value>
+                <value column="3">10000</value>
+                <value column="4">Owoce</value>
+                <value column="5">BER100</value>
+                <value column="6">3</value>
+                <value column="7">Poznań</value>
+                <value column="8">Wrocław</value>
+            </row>
+            <row>
+                <value column="0">4</value>
+                <value column="1">09.12.2015</value>
+                <value column="2">12.12.2015</value>
+                <value column="3">15550</value>
+                <value column="4">Monitory</value>
+                <value column="5">BER100</value>
+                <value column="6">2</value>
+                <value column="7">Berlin</value>
+                <value column="8">Wrocław</value>
+            </row>
+            <row>
+                <value column="0">5</value>
+                <value column="1">13.10.2017</value>
+                <value column="2">16.10.2017</value>
+                <value column="3">30000</value>
+                <value column="4">Tajne</value>
+                <value column="5">POZ0001</value>
+                <value column="6">5</value>
+                <value column="7">Berlin</value>
+                <value column="8">Warszawa</value>
+            </row>
+        </rows>
+    </table>
+</database>
